@@ -5,9 +5,9 @@
     </div>
 
     <div class="col-12 col-lg-6">
-        <h1 class="display-5 fw-bold mb-3">Huge selection of delicios recipe ideas</h1>
+        <h1 class="display-5 fw-bold mb-3">Huge selection of delicios recepi ideas</h1>
         <p class="lead">
-            Explore our huge selection of delicious recipe ideas including; easy desserts, delicious vegan and
+            Explore our huge selection of delicious recepi ideas including; easy desserts, delicious vegan and
             vegetarian dinner ideas, gorgeous pasta recipes, quick bakes, family-friendly meals and gluten-free recipes.
         </p>
 
@@ -22,34 +22,18 @@
 
 <!--Categories Start-->
 <div class="row row cols-2 row-cols-lg-6 g-2 g-lg-2 py-4">
-    <a href="#" class="col text-center category__link text-decoration-none">
-        <div class="category__img shadow">
-            <img src="/img/american-food.jpg" alt="American Food" loading="lazy">
-        </div>
-        <h3 class="pt-1">American Food</h3>
-    </a>
-    <a href="#" class="col text-center category__link text-decoration-none">
-        <div class="category__img shadow">
-            <img src="/img/spanish-food.jpg" alt="American Food" loading="lazy">
-        </div>
-        <h3 class="pt-1">Spanish Food</h3>
-    </a> <a href="#" class="col text-center category__link text-decoration-none">
-        <div class="category__img shadow">
-            <img src="/img/mexican-food.jpg" alt="American Food" loading="lazy">
-        </div>
-        <h3 class="pt-1">Mexican Food</h3>
-    </a> <a href="#" class="col text-center category__link text-decoration-none">
-        <div class="category__img shadow">
-            <img src="/img/indian-food.jpg" alt="American Food" loading="lazy">
-        </div>
-        <h3 class="pt-1">indian Food</h3>
-    </a> <a href="#" class="col text-center category__link text-decoration-none">
-        <div class="category__img shadow">
-            <img src="/img/chinese-food.jpg" alt="American Food" loading="lazy">
-        </div>
-        <h3 class="pt-1">Chinese Food</h3>
-    </a>
-    <a href="#" class="col text-center category__link text-decoration-none">
+
+        <% if(categories != '') { %>
+            <% categories.forEach(function(category, index) { %>
+                <a href="/categories/<%- category._id %>" class="col text-center category__link">
+                    <div class="category__img shadow">
+                        <img src="img/<%- category.image %>" alt="<%- category.name %>" loading="lazy">
+                    </div>
+                    <div class="pt-1"><%- category.name %></div>
+                </a>
+            <% }) %>
+        <% } %>
+    <a href="/categories" class="col text-center category__link text-decoration-none">
         <div class="category__img shadow">
             <img src="/img/view-all.jpg" alt="View All Categorries" loading="lazy">
         </div>
@@ -62,41 +46,21 @@
 <section class="pb-4 pt-4">
     <div class="d-flex mb-2 align-items-center">
         <h2 class="display-5 fw-bold mb-0">Latest recipes</h2>
-        <a href="/explore-latest" class="ms-auto">View All</a>
+        <a href="/recipes" class="ms-auto">View All</a>
     </div>
 
 
     <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3 pt-5">
-        <a href="/recipes/#" class="col text-center category__link">
+            <% if(latestRecipes != '') { %>
+            <% latestRecipes.forEach(function(recipe, index) { %>
+        <a href="/recipes/<%- recipe._id%>" class="col text-center category__link">
             <div class="category__img--large category__img shadow">
-                <img src="/img/chocolate-banoffe-whoopie-pies.jpg" alt="">
+                <img src="/uploads/<%- recipe.image %>" alt="<%- recipe.name %>">
             </div>
-            <div class="pt-1">Chocolate Banoffe</div>
+            <div class="pt-1"><%- recipe.name %></div>
         </a>
-        <a href="/recipes/#" class="col text-center category__link">
-            <div class="category__img--large category__img shadow">
-                <img src="/img/chocolate-banoffe-whoopie-pies.jpg" alt="">
-            </div>
-            <div class="pt-1">Chocolate Banoffe</div>
-        </a>
-        <a href="/recipes/#" class="col text-center category__link">
-            <div class="category__img--large category__img shadow">
-                <img src="/img/chocolate-banoffe-whoopie-pies.jpg" alt="">
-            </div>
-            <div class="pt-1">Chocolate Banoffe</div>
-        </a>
-        <a href="/recipes/#" class="col text-center category__link">
-            <div class="category__img--large category__img shadow">
-                <img src="/img/chocolate-banoffe-whoopie-pies.jpg" alt="">
-            </div>
-            <div class="pt-1">Chocolate Banoffe</div>
-        </a>
-        <a href="/recipes/#" class="col text-center category__link">
-            <div class="category__img--large category__img shadow">
-                <img src="/img/chocolate-banoffe-whoopie-pies.jpg" alt="">
-            </div>
-            <div class="pt-1">Chocolate Banoffe</div>
-        </a>
+            <% }) %>
+        <% } %>
 
     </div>
 
@@ -104,13 +68,13 @@
 <!--Latest End-->
 <section class="px-4 py-5 my-5 text-center">
     <img src="/img/publish-recipe.png" class="d-block mx-auto mb-4 img-fluid" width="566" height="208" loading="lazy" alt="">
-    <h1 class="display-5 fw-bold">Publish your recipe for FREE today.</h1>
+    <h1 class="display-5 fw-bold">Publish your recepi for FREE today.</h1>
     <div class="col-lg-6 mx-auto">
         <p class="lead mb-4">
-            Publish your recipe for FREE today. It's easy and fast.
+            Publish your recepi for FREE today. It's easy and fast.
         </p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a href="/submit-recipe" class="btn btn-primary btn-dark btn-lg">Submit Recipe</a>
+            <a href="/submit-recepi" class="btn btn-primary btn-dark btn-lg">Submit recepi</a>
         </div>
     </div>
 </section>
